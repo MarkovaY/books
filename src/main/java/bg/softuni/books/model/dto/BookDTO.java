@@ -1,24 +1,16 @@
-package bg.softuni.books.model.entity;
+package bg.softuni.books.model.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name="books")
-public class BookEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BookDTO {
     private Long id;
     private String title;
     private String isbn;
-
-    @ManyToOne
-    private AuthorEntity author;
+    private AuthorDTO author;
 
     public Long getId() {
         return id;
     }
 
-    public BookEntity setId(Long id) {
+    public BookDTO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -27,7 +19,7 @@ public class BookEntity {
         return title;
     }
 
-    public BookEntity setTitle(String title) {
+    public BookDTO setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -36,27 +28,27 @@ public class BookEntity {
         return isbn;
     }
 
-    public BookEntity setIsbn(String isbn) {
+    public BookDTO setIsbn(String isbn) {
         this.isbn = isbn;
         return this;
     }
 
-    public AuthorEntity getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public BookEntity setAuthor(AuthorEntity author) {
+    public BookDTO setAuthor(AuthorDTO author) {
         this.author = author;
         return this;
     }
 
     @Override
     public String toString() {
-        return "BookEntity{" +
+        return "BookDTO{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", author=" + (author != null ? author.getName() : null) +
+                ", author=" + author +
                 '}';
     }
 }
